@@ -1,13 +1,18 @@
 .ssc8-rating-widget {
-    margin: 12px 16px 16px 16px;
+    margin: 0 16px 16px 16px;
     padding: 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0 0 12px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     width: calc(100% - 32px);
     box-sizing: border-box;
+}
+
+.ssc8-expand-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--ssc8-accent) !important;
 }
 
 .ssc8-stars-row {
@@ -24,11 +29,12 @@
 }
 
 .ssc8-star.active {
-    color: var(--ssc8-star-active);
-    text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+    color: #ffcc00;
+    /* 纯正亮黄色 */
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
 }
 
 .ssc8-star:hover {
-    transform: scale(1.2);
-    color: var(--ssc8-star-active);
+    transform: scale(1.25);
+    color: #ffcc00;
 }

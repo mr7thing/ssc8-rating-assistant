@@ -1,76 +1,140 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <title>SSC8 Assistant</title>
     <link rel="stylesheet" href="../styles/shared.css">
     <style>
         body {
-            padding: 20px;
-            background: var(--ssc8-bg);
-            min-height: 100vh;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-        }
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--ssc8-accent);
-        }
-        .config-list {
+            padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            height: 100vh;
+            overflow: hidden;
+            background: #0f0f13;
         }
-        .config-item {
-            background: var(--ssc8-card-bg);
-            border: 1px solid var(--ssc8-border);
-            padding: 12px;
-            border-radius: 8px;
-        }
-        .song-ranking-list {
-            margin-top: 32px;
-        }
-        .rank-item {
+
+        .tabs {
             display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
             border-bottom: 1px solid var(--ssc8-border);
+            background: rgba(255, 255, 255, 0.02);
         }
-        button {
-            background: var(--ssc8-accent);
-            color: white;
+
+        .tab-btn {
+            flex: 1;
+            padding: 14px;
             border: none;
-            padding: 8px 16px;
+            background: none;
+            color: var(--ssc8-text);
+            opacity: 0.5;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            opacity: 1;
+            color: var(--ssc8-accent);
+            border-bottom: 2px solid var(--ssc8-accent);
+        }
+
+        .tab-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .config-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--ssc8-border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .config-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .config-input {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--ssc8-border);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--ssc8-accent);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: filter 0.2s;
+        }
+
+        .btn-primary:active {
+            filter: brightness(0.8);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--ssc8-accent);
+            color: var(--ssc8-accent);
+            padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
+            font-size: 12px;
+        }
+
+        .action-bar {
+            display: flex;
+            gap: 10px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--ssc8-border);
+            background: rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body class="ssc8-extension-root">
-    <div class="header">
-        <h2>SSC8 Assistant</h2>
+
+<body>
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="ranking">排行榜</button>
+        <button class="tab-btn" data-tab="config">评分配置</button>
     </div>
 
-    <div class="section">
-        <div class="section-title">评分维度配置</div>
-        <div id="dimensions-config" class="config-list">
-            <!-- 动态生成 -->
+    <!-- 排行榜 Tab -->
+    <div id="ranking" class="tab-content active">
+        <div id="ranked-songs"></div>
+    </div>
+
+    <!-- 维度配置 Tab -->
+    <div id="config" class="tab-content">
+        <div id="dimensions-list"></div>
+        <button id="add-dim" class="btn-outline" style="width: 100%; margin-top: 10px;">+ 添加新维度</button>
+        <div style="margin-top: 20px;">
+            <button id="save-config" class="btn-primary" style="width: 100%;">保存配置并应用</button>
         </div>
     </div>
 
-    <div class="song-ranking-list">
-        <div class="section-title">今日推荐排序</div>
-        <div id="ranked-songs">
-            <!-- 动态显示已评分歌曲及其排名 -->
-        </div>
+    <div class="action-bar">
+        <button id="export-csv" class="btn-outline" style="flex:1">导出 CSV</button>
+        <button id="clear-data" class="btn-outline" style="flex:1; border-color:#ef4444; color:#ef4444">清除全部评分</button>
     </div>
 
     <script src="main.js"></script>
 </body>
+
 </html>
