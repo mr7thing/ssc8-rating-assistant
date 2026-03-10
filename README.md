@@ -49,6 +49,15 @@
 4.  点击左上角 **“加载已解压的扩展程序” (Load unpacked)**。
 5.  选择项目中的 `extension` 文件夹。
 6.  固定扩展并在访问 `songcontest.ai` 时点击图标开启侧边栏。
+   
+---
+
+1. Download the source code of this project and unzip it.
+2. Open the Chrome browser and go to chrome://extensions/.
+3. Enable Developer mode in the upper right corner.
+4. Click Load unpacked in the upper left corner.
+5. Select the extension folder from the project files.
+6. Pin the extension, then click its icon to open the sidebar when visiting songcontest.ai.
 
 ---
 
