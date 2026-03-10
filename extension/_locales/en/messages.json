@@ -1,0 +1,70 @@
+{
+    "extensionName": {
+        "message": "SSC8 Rating Assistant",
+        "description": "The name of the extension"
+    },
+    "extensionDesc": {
+        "message": "Professional multi-dimensional song rating tool for songcontest.ai",
+        "description": "Extension description"
+    },
+    "tabRanking": {
+        "message": "Ranking",
+        "description": "Ranking tab title"
+    },
+    "tabConfig": {
+        "message": "Settings",
+        "description": "Settings tab title"
+    },
+    "dimManagement": {
+        "message": "Dimension Management",
+        "description": "Dimension management header"
+    },
+    "addDim": {
+        "message": "+ Add New Dimension",
+        "description": "Add dimension button"
+    },
+    "saveConfig": {
+        "message": "Save & Apply",
+        "description": "Save config button"
+    },
+    "exportCSV": {
+        "message": "Export CSV",
+        "description": "Export data button"
+    },
+    "clearData": {
+        "message": "Clear All Data",
+        "description": "Clear data button"
+    },
+    "expandRating": {
+        "message": "▼ Expand Rating",
+        "description": "Expand rating button text"
+    },
+    "collapseRating": {
+        "message": "▲ Collapse Rating",
+        "description": "Collapse rating button text"
+    },
+    "confirmClear": {
+        "message": "Are you sure you want to clear all rating data? Configuration will be kept.",
+        "description": "Clear data confirmation"
+    },
+    "configSaved": {
+        "message": "Settings saved!",
+        "description": "Config saved alert"
+    },
+    "noRatings": {
+        "message": "No rating records yet",
+        "description": "Empty state message"
+    },
+    "dimName": {
+        "message": "Dimension Name",
+        "description": "Placeholder for dimension name"
+    },
+    "dimDesc": {
+        "message": "Description (Optional)",
+        "description": "Placeholder for dimension description"
+    },
+    "maxScore": {
+        "message": "Max",
+        "description": "Max score label"
+    }
+}

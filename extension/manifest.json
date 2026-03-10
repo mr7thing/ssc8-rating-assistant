@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "SSC8 Rating Assistant",
-  "version": "1.0.1",
-  "description": "Multi-dimensional song rating and sorting for songcontest.ai",
+  "name": "__MSG_extensionName__",
+  "version": "1.0.2",
+  "default_locale": "zh_CN",
+  "description": "__MSG_extensionDesc__",
   "permissions": [
     "storage",
     "sidePanel",

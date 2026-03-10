@@ -1,0 +1,70 @@
+{
+    "extensionName": {
+        "message": "SSC8 评分助手",
+        "description": "扩展名称"
+    },
+    "extensionDesc": {
+        "message": "为 songcontest.ai 提供的专业多维度歌曲评分工具",
+        "description": "扩展描述"
+    },
+    "tabRanking": {
+        "message": "排行榜",
+        "description": "排行榜标签页标题"
+    },
+    "tabConfig": {
+        "message": "评分配置",
+        "description": "评分配置标签页标题"
+    },
+    "dimManagement": {
+        "message": "维度管理",
+        "description": "维度管理标题"
+    },
+    "addDim": {
+        "message": "+ 添加新维度",
+        "description": "添加维度按钮"
+    },
+    "saveConfig": {
+        "message": "保存配置并应用",
+        "description": "保存配置按钮"
+    },
+    "exportCSV": {
+        "message": "导出 CSV",
+        "description": "导出数据按钮"
+    },
+    "clearData": {
+        "message": "清除全部评分",
+        "description": "清除数据按钮"
+    },
+    "expandRating": {
+        "message": "▼ 展开评分",
+        "description": "展开评分按钮文字"
+    },
+    "collapseRating": {
+        "message": "▲ 收起评分",
+        "description": "收起评分按钮文字"
+    },
+    "confirmClear": {
+        "message": "确定要清除所有评分数据吗？配置将保留。",
+        "description": "清除数据确认弹窗"
+    },
+    "configSaved": {
+        "message": "配置已保存！",
+        "description": "保存成功提示"
+    },
+    "noRatings": {
+        "message": "暂无评分记录",
+        "description": "空状态提示"
+    },
+    "dimName": {
+        "message": "维度名称",
+        "description": "维度名称占位符"
+    },
+    "dimDesc": {
+        "message": "评分标准说明 (可选)",
+        "description": "维度说明占位符"
+    },
+    "maxScore": {
+        "message": "满分",
+        "description": "满分标签"
+    }
+}

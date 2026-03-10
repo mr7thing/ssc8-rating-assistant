@@ -98,14 +98,6 @@
             cursor: pointer;
             font-size: 12px;
         }
-
-        .action-bar {
-            display: flex;
-            gap: 10px;
-            padding: 10px 20px;
-            border-top: 1px solid var(--ssc8-border);
-            background: rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
 
@@ -127,11 +119,15 @@
         <div style="margin-top: 20px;">
             <button id="save-config" class="btn-primary" style="width: 100%;">保存配置并应用</button>
         </div>
-    </div>
 
-    <div class="action-bar">
-        <button id="export-csv" class="btn-outline" style="flex:1">导出 CSV</button>
-        <button id="clear-data" class="btn-outline" style="flex:1; border-color:#ef4444; color:#ef4444">清除全部评分</button>
+        <!-- 数据管理区 -->
+        <div style="margin-top: 30px; border-top: 1px solid var(--ssc8-border); padding-top: 20px;">
+            <div style="display: flex; gap: 10px;">
+                <button id="export-csv" class="btn-outline" style="flex: 1">导出 CSV</button>
+                <button id="clear-data" class="btn-outline"
+                    style="flex: 1; border-color:#ef4444; color:#ef4444">清除全部评分</button>
+            </div>
+        </div>
     </div>
 
     <script src="main.js"></script>
