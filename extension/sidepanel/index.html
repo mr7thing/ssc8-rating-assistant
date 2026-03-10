@@ -3,39 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../styles/shared.css">
     <style>
+        html,
         body {
+            margin: 0;
             padding: 0;
+            background: var(--ssc8-bg);
+            height: 100vh;
+            width: 100%;
+            color: var(--ssc8-text);
+        }
+
+        body {
             display: flex;
             flex-direction: column;
-            height: 100vh;
             overflow: hidden;
-            background: #0f0f13;
+            border: none;
         }
 
         .tabs {
             display: flex;
             border-bottom: 1px solid var(--ssc8-border);
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--ssc8-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .tab-btn {
             flex: 1;
-            padding: 14px;
+            padding: 16px;
             border: none;
             background: none;
             color: var(--ssc8-text);
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: pointer;
             font-weight: 600;
             font-size: 14px;
             transition: all 0.2s;
+            border-radius: 0;
         }
 
         .tab-btn.active {
             opacity: 1;
             color: var(--ssc8-accent);
+            background: rgba(168, 85, 247, 0.05);
             border-bottom: 2px solid var(--ssc8-accent);
         }
 
@@ -44,6 +58,7 @@
             overflow-y: auto;
             padding: 20px;
             display: none;
+            background: var(--ssc8-bg);
         }
 
         .tab-content.active {
@@ -51,11 +66,12 @@
         }
 
         .config-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--ssc8-card-bg);
             border: 1px solid var(--ssc8-border);
-            border-radius: 12px;
+            border-radius: 6px;
             padding: 12px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .config-row {
@@ -65,38 +81,57 @@
         }
 
         .config-input {
-            background: rgba(0, 0, 0, 0.3);
+            background: white;
             border: 1px solid var(--ssc8-border);
-            color: white;
-            padding: 6px 10px;
+            color: var(--ssc8-text);
+            padding: 8px 10px;
             border-radius: 6px;
             font-size: 13px;
             outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .config-input:focus {
+            border-color: var(--ssc8-accent);
         }
 
         .btn-primary {
             background: var(--ssc8-accent);
             border: none;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: filter 0.2s;
+            font-size: 14px;
+            transition: all 0.2s;
         }
 
-        .btn-primary:active {
-            filter: brightness(0.8);
+        .btn-primary:hover {
+            background: var(--ssc8-accent-hover);
+            transform: translateY(-1px);
         }
 
         .btn-outline {
-            background: transparent;
-            border: 1px solid var(--ssc8-accent);
-            color: var(--ssc8-accent);
-            padding: 6px 12px;
+            background: white;
+            border: 1px solid var(--ssc8-border);
+            color: var(--ssc8-text);
+            padding: 8px 12px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--ssc8-accent);
+            color: var(--ssc8-accent);
+        }
+
+        /* 优化排名列表在亮色下的显示 */
+        #ranked-songs>div {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
@@ -121,11 +156,11 @@
         </div>
 
         <!-- 数据管理区 -->
-        <div style="margin-top: 30px; border-top: 1px solid var(--ssc8-border); padding-top: 20px;">
+        <div style="margin-top: 40px; border-top: 1px solid var(--ssc8-border); padding-top: 20px;">
             <div style="display: flex; gap: 10px;">
                 <button id="export-csv" class="btn-outline" style="flex: 1">导出 CSV</button>
                 <button id="clear-data" class="btn-outline"
-                    style="flex: 1; border-color:#ef4444; color:#ef4444">清除全部评分</button>
+                    style="flex: 1; border-color:var(--ssc8-danger); color:var(--ssc8-danger)">清除全部评分</button>
             </div>
         </div>
     </div>

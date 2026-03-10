@@ -1,16 +1,16 @@
 :root {
-  --ssc8-bg: #111116;
-  --ssc8-card-bg: #1c1c24;
   --ssc8-accent: #a855f7;
+  --ssc8-accent-hover: #9333ea;
+  --ssc8-bg: #ffffff;
+  --ssc8-card-bg: #f8fafc;
+  --ssc8-text: #1e293b;
+  --ssc8-text-dim: #64748b;
+  --ssc8-border: #e2e8f0;
   --ssc8-star-active: #fbbf24;
-  /* 明显的黄色 */
-  --ssc8-star-inactive: rgba(255, 255, 255, 0.15);
-  --ssc8-border: rgba(255, 255, 255, 0.08);
-  --ssc8-text: #ffffff;
+  --ssc8-star-empty: #cbd5e1;
+  --ssc8-danger: #ef4444;
 }
 
-body {
-  background-color: var(--ssc8-bg);
-  color: var(--ssc8-text);
-  font-family: 'Inter', -apple-system, sans-serif;
+.ssc8-extension-root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

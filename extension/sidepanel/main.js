@@ -108,7 +108,7 @@ function renderConfig() {
             <div class="config-row">
                 <input type="text" class="config-input dim-name" value="${dim.name}" style="flex:1" placeholder="${i18n('dimName')}">
                 <input type="number" class="config-input dim-max" value="${dim.max}" style="width:45px" title="${i18n('maxScore')}">
-                <button class="remove-dim" data-index="${index}" style="background:none; border:none; color:#ef4444; cursor:pointer; font-size:16px;">✕</button>
+                <button class="remove-dim" data-index="${index}" style="background:none; border:none; color:var(--ssc8-danger); cursor:pointer; font-size:16px;">✕</button>
             </div>
             <div class="config-row" style="margin-top: 8px;">
                 <input type="text" class="config-input dim-desc" value="${dim.desc || ''}" style="flex:1; font-size:11px; opacity:0.7;" placeholder="${i18n('dimDesc')}">
@@ -167,20 +167,20 @@ async function loadRankings() {
     const container = document.getElementById('ranked-songs');
     if (!container) return;
 
-    container.innerHTML = rated.length ? '' : `<div style="opacity:0.4; padding:40px; text-align:center; font-size:12px;">${i18n('noRatings')}</div>`;
+    container.innerHTML = rated.length ? '' : `<div style="opacity:0.4; padding:40px; text-align:center; font-size:12px; color:var(--ssc8-text-dim);">${i18n('noRatings')}</div>`;
 
     rated.forEach((song, index) => {
         const div = document.createElement('div');
-        div.style.cssText = 'padding:14px; background:rgba(255,255,255,0.03); border:1px solid var(--ssc8-border); border-radius:10px; margin-bottom:10px;';
+        div.style.cssText = 'padding:14px; background:white; border:1px solid var(--ssc8-border); border-radius:10px; margin-bottom:10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);';
         div.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <div style="flex:1">
-                    <div style="font-weight:700; color:var(--ssc8-accent); font-size:13px; line-height:1.2;">#${index + 1} ${song.title}</div>
-                    <div style="font-size:11px; opacity:0.5; margin-top:2px;">by ${song.artist}</div>
+                    <div style="font-weight:700; color:var(--ssc8-text); font-size:13px; line-height:1.2;">#${index + 1} ${song.title}</div>
+                    <div style="font-size:11px; color:var(--ssc8-text-dim); margin-top:2px;">by ${song.artist}</div>
                 </div>
                 <div style="background:var(--ssc8-accent); color:white; padding:4px 10px; border-radius:6px; font-weight:800; font-size:15px;">${song.score}</div>
             </div>
-            <div style="font-size:10px; opacity:0.4; line-height:1.3; border-top:1px solid rgba(255,255,255,0.05); padding-top:6px;">${song.breakdown}</div>
+            <div style="font-size:10px; color:var(--ssc8-text-dim); line-height:1.3; border-top:1px solid var(--ssc8-border); padding-top:6px;">${song.breakdown}</div>
         `;
         container.appendChild(div);
     });
