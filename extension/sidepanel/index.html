@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SSC8 Assistant</title>
+    <link rel="stylesheet" href="../styles/shared.css">
+    <style>
+        body {
+            padding: 20px;
+            background: var(--ssc8-bg);
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--ssc8-accent);
+        }
+        .config-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .config-item {
+            background: var(--ssc8-card-bg);
+            border: 1px solid var(--ssc8-border);
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .song-ranking-list {
+            margin-top: 32px;
+        }
+        .rank-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--ssc8-border);
+        }
+        button {
+            background: var(--ssc8-accent);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="ssc8-extension-root">
+    <div class="header">
+        <h2>SSC8 Assistant</h2>
+    </div>
+
+    <div class="section">
+        <div class="section-title">评分维度配置</div>
+        <div id="dimensions-config" class="config-list">
+            <!-- 动态生成 -->
+        </div>
+    </div>
+
+    <div class="song-ranking-list">
+        <div class="section-title">今日推荐排序</div>
+        <div id="ranked-songs">
+            <!-- 动态显示已评分歌曲及其排名 -->
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

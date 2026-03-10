@@ -1,0 +1,16 @@
+:root {
+  --ssc8-bg: #111116;
+  --ssc8-card-bg: #1c1c24;
+  --ssc8-accent: #a855f7;
+  --ssc8-star-active: #fbbf24;
+  /* 明显的黄色 */
+  --ssc8-star-inactive: rgba(255, 255, 255, 0.15);
+  --ssc8-border: rgba(255, 255, 255, 0.08);
+  --ssc8-text: #ffffff;
+}
+
+body {
+  background-color: var(--ssc8-bg);
+  color: var(--ssc8-text);
+  font-family: 'Inter', -apple-system, sans-serif;
+}
