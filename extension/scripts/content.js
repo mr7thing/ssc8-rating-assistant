@@ -235,11 +235,20 @@ function updateUI(songId) {
 }
 
 function scanAndInject() {
-    const cards = document.querySelectorAll('.rt-BaseCard, .rt-Card');
-    cards.forEach(card => {
-        if (card.innerText.includes('Click to rank')) {
-            injectRatingUI(card);
-        }
+    // 锁定所有歌曲标题链接作为绝对锚点
+    const titleLinks = document.querySelectorAll('.song-title-link');
+    
+    titleLinks.forEach(link => {
+        // 向上寻找最近的卡片容器
+        const card = link.closest('.rt-BaseCard, .rt-Card');
+        if (!card) return;
+
+        // 幂等检查：避免在动态滚动或状态切换时重复注入
+        if (card.dataset.ssc8Injected === 'true') return;
+        
+        // 标记已注入，无论其内部 UI 如何变化（如 Click to rank 消失）
+        card.dataset.ssc8Injected = 'true';
+        injectRatingUI(card);
     });
 }
 
