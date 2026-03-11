@@ -159,7 +159,14 @@ async function loadRankings() {
                 breakdown.push(`${dim.name}:${score}`);
             });
             const metadata = ratings._metadata || {};
-            songs.push({ id: key, score: totalScore, breakdown: breakdown.join(' | '), title: metadata.title || 'Unknown', artist: metadata.artist || 'Unknown' });
+            songs.push({
+                id: key,
+                score: totalScore,
+                breakdown: breakdown.join(' | '),
+                title: metadata.title || 'Unknown',
+                artist: metadata.artist || 'Unknown',
+                comment: ratings.comment || ''
+            });
         }
     }
 
@@ -181,6 +188,10 @@ async function loadRankings() {
                 <div style="background:var(--ssc8-accent); color:white; padding:4px 10px; border-radius:6px; font-weight:800; font-size:15px;">${song.score}</div>
             </div>
             <div style="font-size:10px; color:var(--ssc8-text-dim); line-height:1.3; border-top:1px solid var(--ssc8-border); padding-top:6px;">${song.breakdown}</div>
+            ${song.comment ? `
+            <div style="font-size:11px; color:#64748b; margin-top:8px; font-style:italic; padding-left:8px; border-left:2px solid var(--ssc8-accent); line-height:1.4;">
+                "${song.comment.length > 50 ? song.comment.substring(0, 50) + '...' : song.comment}"
+            </div>` : ''}
         `;
         container.appendChild(div);
     });
@@ -189,7 +200,7 @@ async function loadRankings() {
 function exportToCSV() {
     chrome.storage.local.get(null, (data) => {
         const config = data.config || { dimensions: getDefaultDimensions() };
-        const headers = ['Song ID', 'Title', 'Country', 'Artist', ...config.dimensions.map(d => d.name), 'Total'];
+        const headers = ['Song ID', 'Title', 'Country', 'Artist', ...config.dimensions.map(d => d.name), 'Total', 'Comment'];
         const sep = ';';
         const rows = [headers.join(sep)];
 
@@ -225,7 +236,8 @@ function exportToCSV() {
                     row.push(s);
                 });
                 row.push(total);
-                if (total > 0) rows.push(row.join(sep));
+                row.push(`"${(ratings.comment || '').replace(/"/g, '""')}"`);
+                if (total > 0 || (ratings.comment && ratings.comment.trim())) rows.push(row.join(sep));
             }
         }
 

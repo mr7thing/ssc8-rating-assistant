@@ -66,5 +66,13 @@
     "maxScore": {
         "message": "满分",
         "description": "满分标签"
+    },
+    "commentLabel": {
+        "message": "评语",
+        "description": "评语标签"
+    },
+    "commentPlaceholder": {
+        "message": "在此输入对歌曲的闪念或评价...",
+        "description": "评语占位符"
     }
 }

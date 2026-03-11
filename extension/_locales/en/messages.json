@@ -66,5 +66,13 @@
     "maxScore": {
         "message": "Max",
         "description": "Max score label"
+    },
+    "commentLabel": {
+        "message": "Comments",
+        "description": "Comment label"
+    },
+    "commentPlaceholder": {
+        "message": "Enter your thoughts or review here...",
+        "description": "Comment placeholder"
     }
 }

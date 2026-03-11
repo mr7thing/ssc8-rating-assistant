@@ -21,6 +21,62 @@
     gap: 4px;
 }
 
+.ssc8-total-score {
+    background: var(--ssc8-accent);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+/* 评语区样式 */
+.ssc8-comment-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--ssc8-border);
+}
+
+.ssc8-comment-label {
+    display: block;
+    font-size: 12px;
+    color: var(--ssc8-text-dim);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.ssc8-comment-input {
+    width: 100%;
+    min-height: 80px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--ssc8-border);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    resize: vertical;
+    outline: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.ssc8-comment-input:focus {
+    border-color: var(--ssc8-accent);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.1);
+}
+
+.ssc8-comment-status {
+    font-size: 10px;
+    color: var(--ssc8-text-dim);
+    text-align: right;
+    margin-top: 4px;
+    height: 12px;
+    opacity: 0.7;
+}
+
 .ssc8-star {
     cursor: pointer;
     font-size: 20px;

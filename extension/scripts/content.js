@@ -152,6 +152,39 @@ function injectRatingUI(card) {
         list.appendChild(row);
     });
 
+    // 注入评语区
+    const commentContainer = document.createElement('div');
+    commentContainer.className = 'ssc8-comment-container';
+
+    const commentLabel = document.createElement('label');
+    commentLabel.className = 'ssc8-comment-label';
+    commentLabel.innerText = i18n('commentLabel');
+
+    const commentInput = document.createElement('textarea');
+    commentInput.className = 'ssc8-comment-input';
+    commentInput.placeholder = i18n('commentPlaceholder');
+    commentInput.dataset.songId = songId;
+
+    const statusMsg = document.createElement('div');
+    statusMsg.className = 'ssc8-comment-status';
+
+    let debounceTimer = null;
+    commentInput.oninput = () => {
+        statusMsg.innerText = '...';
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            saveComment(songId, commentInput.value, () => {
+                statusMsg.innerText = '✓';
+                setTimeout(() => { if (statusMsg.innerText === '✓') statusMsg.innerText = ''; }, 2000);
+            });
+        }, 800);
+    };
+
+    commentContainer.appendChild(commentLabel);
+    commentContainer.appendChild(commentInput);
+    commentContainer.appendChild(statusMsg);
+    list.appendChild(commentContainer);
+
     container.appendChild(list);
     card.appendChild(expandBtn);
     card.appendChild(container);
@@ -169,6 +202,14 @@ function saveRating(songId, dimId, value, title, artist) {
     });
 }
 
+function saveComment(songId, comment, p1) {
+    chrome.storage.local.get([songId], (res) => {
+        const ratings = res[songId] || {};
+        ratings.comment = comment;
+        chrome.storage.local.set({ [songId]: ratings }, p1);
+    });
+}
+
 function updateUI(songId) {
     chrome.storage.local.get([songId], (res) => {
         const ratings = res[songId] || {};
@@ -179,6 +220,10 @@ function updateUI(songId) {
                 const isActive = ratings[s.dataset.dimId] >= parseInt(s.dataset.value);
                 s.classList.toggle('active', isActive);
             });
+            const commentInput = w.querySelector('.ssc8-comment-input');
+            if (commentInput && document.activeElement !== commentInput) {
+                commentInput.value = ratings.comment || '';
+            }
         });
 
         config.dimensions.forEach(d => total += (ratings[d.id] || 0));
