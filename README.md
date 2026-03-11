@@ -61,6 +61,36 @@
 
 ---
 
+## 🌐 兼容性 | Browser Compatibility
+
+本插件基于 **Manifest V3** 标准开发，适用于所有 Chromium 内核浏览器：
+- **Google Chrome**（官方推荐）
+- **Microsoft Edge**（经实测功能完美运行）
+- **Brave / Vivaldi** 等其他 Chromium 浏览器
+
+This extension is built on the **Manifest V3** standard and is compatible with all Chromium-based browsers:
+- **Google Chrome** (Officially recommended)
+- **Microsoft Edge** (Tested and verified to work perfectly)
+- **Brave / Vivaldi** and other Chromium browsers
+
+---
+
+## 🔄 升级更新 | Update Guide
+
+当有新版本发布时，请按照以下步骤更新：
+1.  下载最新的代码包并解压，覆盖原有的 `extension` 文件夹。
+2.  访问 `chrome://extensions/`（或 Edge 的 `edge://extensions/`）。
+3.  找到 **SSC8 Rating Assistant**，点击卡片右下角的 **“刷新” (Reload)** 图标按钮。
+4.  刷新 `songcontest.ai` 页面即可启用新功能。
+
+When a new version is released, follow these steps to update:
+1. Download the latest code and extract it, overwriting the existing `extension` folder.
+2. Go to `chrome://extensions/` (or `edge://extensions/` for Edge).
+3. Locate **SSC8 Rating Assistant** and click the **Reload** (refresh icon) button.
+4. Refresh the `songcontest.ai` page to enable new features.
+
+---
+
 ## 📂 文件结构 | File Structure
 
 ```text
