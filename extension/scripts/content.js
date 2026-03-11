@@ -249,5 +249,19 @@ const observer = new MutationObserver(() => {
     scanTimer = setTimeout(scanAndInject, 300);
 });
 
+chrome.runtime.onMessage.addListener((msg) => {
+    if (msg.action === 'scroll-to-song' && msg.songId) {
+        const target = document.querySelector(`.ssc8-rating-widget[data-song-id="${msg.songId}"], .ssc8-total-badge[data-song-id="${msg.songId}"]`);
+        if (target) {
+            const card = target.closest('.rt-BaseCard, .rt-Card');
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('ssc8-highlight-pulse');
+                setTimeout(() => card.classList.remove('ssc8-highlight-pulse'), 2000);
+            }
+        }
+    }
+});
+
 observer.observe(document.body, { childList: true, subtree: true });
 scanAndInject();

@@ -178,7 +178,20 @@ async function loadRankings() {
 
     rated.forEach((song, index) => {
         const div = document.createElement('div');
-        div.style.cssText = 'padding:14px; background:white; border:1px solid var(--ssc8-border); border-radius:10px; margin-bottom:10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);';
+        div.className = 'rank-item';
+        div.style.cssText = 'padding:14px; background:white; border:1px solid var(--ssc8-border); border-radius:10px; margin-bottom:10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor:pointer; transition: transform 0.2s;';
+        
+        div.onmouseover = () => div.style.transform = 'translateY(-2px)';
+        div.onmouseout = () => div.style.transform = 'translateY(0)';
+        
+        div.onclick = () => {
+            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                if (tabs[0]) {
+                    chrome.tabs.sendMessage(tabs[0].id, { action: 'scroll-to-song', songId: song.id });
+                }
+            });
+        };
+
         div.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <div style="flex:1">
